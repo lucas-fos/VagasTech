@@ -1,0 +1,67 @@
+CREATE DATABASE IF NOT EXISTS vagastech
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE vagastech;
+
+CREATE TABLE IF NOT EXISTS users (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  email VARCHAR(190) NOT NULL UNIQUE,
+  phone VARCHAR(30) NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  type ENUM('candidate','company') NOT NULL,
+  area VARCHAR(100) NULL,
+  level VARCHAR(80) NULL,
+  education TEXT NULL,
+  summary TEXT NULL,
+  cnpj VARCHAR(30) NULL UNIQUE,
+  sector VARCHAR(120) NULL,
+  size VARCHAR(50) NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS jobs (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  company_id BIGINT UNSIGNED NOT NULL,
+  title VARCHAR(180) NOT NULL,
+  area VARCHAR(100),
+  level VARCHAR(80),
+  model VARCHAR(40),
+  location VARCHAR(160),
+  technologies JSON,
+  experience VARCHAR(180),
+  description TEXT,
+  requirements TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_jobs_company FOREIGN KEY (company_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS applications (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  job_id BIGINT UNSIGNED NOT NULL,
+  candidate_id BIGINT UNSIGNED NOT NULL,
+  status VARCHAR(60) NOT NULL DEFAULT 'Em análise',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY unique_candidate_job (job_id,candidate_id),
+  CONSTRAINT fk_app_job FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
+  CONSTRAINT fk_app_candidate FOREIGN KEY (candidate_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS user_skills (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT UNSIGNED NOT NULL,
+  skill VARCHAR(100) NOT NULL,
+  UNIQUE KEY unique_user_skill (user_id,skill),
+  CONSTRAINT fk_skills_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS projects (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT UNSIGNED NOT NULL,
+  title VARCHAR(180) NOT NULL,
+  category VARCHAR(80),
+  description TEXT,
+  challenge TEXT,
+  technologies VARCHAR(255),
+  url VARCHAR(500),
+  CONSTRAINT fk_projects_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu currículo | VagasTech</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-content">
+        <a href="index.html" class="logo">Vagas<span>Tech</span></a>
+        <nav class="nav-links">
+            <a href="dashboard.html">Painel</a>
+            <a href="vagas.html">Vagas</a>
+            <a href="perfil.html">Currículo</a>
+            <a href="academy.html">Academy</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="page-header">
+        <h1>Meu perfil profissional</h1>
+        <p>Transforme seus conhecimentos em evidências profissionais.</p>
+    </div>
+
+    <section class="form-card">
+        <h2 id="profile-name">Meu currículo</h2>
+
+        <form id="profile-form">
+            <div class="form-group">
+                <label>Telefone / WhatsApp</label>
+                <input type="tel" id="profile-phone" name="phone" placeholder="(21) 99999-9999" maxlength="20" autocomplete="tel">
+                <small>Esse número será exibido às empresas nas suas candidaturas.</small>
+            </div>
+
+            <div class="form-group">
+                <label>Resumo profissional</label>
+                <textarea id="profile-summary" name="summary"
+                    placeholder="Apresente seus objetivos e conhecimentos."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Formação acadêmica</label>
+                <textarea id="profile-education" name="education"
+                    placeholder="Curso, instituição e período."></textarea>
+            </div>
+
+            <button class="btn btn-primary">Salvar currículo</button>
+        </form>
+    </section>
+
+    <section class="card" style="margin-top:25px">
+        <h2>Habilidades técnicas</h2>
+        <form id="skill-form">
+            <div class="form-group">
+                <label>Adicionar habilidade</label>
+                <input name="skill" placeholder="Ex.: JavaScript" required>
+            </div>
+            <button class="btn btn-accent">Adicionar</button>
+        </form>
+
+        <div id="skills-list" class="skill-list"></div>
+    </section>
+
+    <section class="card" style="margin-top:25px">
+        <h2>Projetos e portfólio</h2>
+        <p>Apresente projetos acadêmicos, pessoais e desafios de curso.</p>
+
+        <form id="project-form" style="margin-top:20px">
+            <div class="form-group">
+                <label>Nome do projeto</label>
+                <input name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label>Categoria</label>
+                <select name="type">
+                    <option>Acadêmico</option>
+                    <option>Pessoal</option>
+                    <option>Desafio de curso</option>
+                    <option>Voluntário</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea name="description" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Desafio superado</label>
+                <textarea name="challenge" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Tecnologias utilizadas</label>
+                <input name="technologies" placeholder="HTML, CSS, JavaScript" required>
+            </div>
+
+            <div class="form-group">
+                <label>Link do projeto ou GitHub</label>
+                <input type="url" name="url" placeholder="https://github.com/...">
+            </div>
+
+            <button class="btn btn-primary">Adicionar projeto</button>
+        </form>
+
+        <div id="projects-list" class="grid" style="margin-top:25px"></div>
+    </section>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/api.js"></script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel | VagasTech</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-content">
+        <a href="index.html" class="logo">Vagas<span>Tech</span></a>
+        <nav class="nav-links">
+            <a href="dashboard.html">Painel</a>
+            <a href="vagas.html">Vagas</a>
+            <a href="candidaturas.html">Candidaturas</a>
+            <a href="perfil.html">Meu currículo</a>
+            <a href="academy.html">Central Academy</a>
+            <a href="publicar-vaga.html">Publicar vaga</a>
+            <a href="empresa-perfil.html">Banco de talentos</a>
+            <a href="#" onclick="logout(); return false;">Sair</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="page-header">
+        <h1 id="dashboard-title">Seu painel VagasTech</h1>
+        <p id="dashboard-description">Acompanhe suas atividades e oportunidades.</p>
+    </div>
+
+    <!-- PAINEL EXCLUSIVO DO CANDIDATO -->
+    <section data-role="candidate">
+        <div class="stats">
+            <div class="stat-card">
+                <strong id="dashboard-applications">0</strong>
+                <span>Candidaturas</span>
+            </div>
+            <div class="stat-card">
+                <strong id="dashboard-projects">0</strong>
+                <span>Projetos cadastrados</span>
+            </div>
+            <div class="stat-card">
+                <strong id="dashboard-activities">0</strong>
+                <span>Atividades concluídas</span>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <aside class="sidebar">
+                <a href="dashboard.html" class="active">Painel</a>
+                <a href="vagas.html">Buscar vagas</a>
+                <a href="candidaturas.html">Minhas candidaturas</a>
+                <a href="perfil.html">Meu currículo</a>
+                <a href="academy.html">Central Academy</a>
+                <a href="dicas-entrevista.html">Dicas de entrevista</a>
+            </aside>
+
+            <section class="content">
+                <div class="card">
+                    <h2>Continue desenvolvendo seu potencial</h2>
+                    <p>Complete seu perfil, adicione projetos e realize atividades práticas para fortalecer sua candidatura.</p>
+                    <div class="hero-actions" style="margin-top:20px">
+                        <a href="perfil.html" class="btn btn-primary">Atualizar currículo</a>
+                        <a href="academy.html" class="btn btn-accent">Acessar Central Academy</a>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:22px">
+                    <h3>Próximos passos</h3>
+                    <div class="list-item">
+                        <strong>1. Complete suas informações</strong>
+                        <p>Adicione sua formação e apresentação.</p>
+                    </div>
+                    <div class="list-item">
+                        <strong>2. Mostre o que você sabe</strong>
+                        <p>Cadastre projetos acadêmicos ou pessoais.</p>
+                    </div>
+                    <div class="list-item">
+                        <strong>3. Candidate-se</strong>
+                        <p>Busque oportunidades compatíveis com seu nível.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- PAINEL EXCLUSIVO DA EMPRESA -->
+    <section data-role="company" hidden>
+        <div class="dashboard-grid">
+            <aside class="sidebar">
+                <a href="dashboard.html" class="active">Painel da empresa</a>
+                <a href="publicar-vaga.html">Publicar vaga</a>
+                <a href="empresa-perfil.html">Banco de talentos</a>
+                <a href="candidaturas.html">Minhas candidaturas</a>
+            </aside>
+
+            <section class="content">
+                <div class="card">
+                    <h2>Área da empresa</h2>
+                    <p>Encontre novos talentos e gerencie oportunidades para profissionais em início de carreira.</p>
+                    <div class="hero-actions" style="margin-top:20px">
+                        <a href="publicar-vaga.html" class="btn btn-primary">Publicar oportunidade</a>
+                        <a href="empresa-perfil.html" class="btn btn-outline">Acessar Banco de talentos</a>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="margin-top:22px">
+                    <article class="card">
+                        <h3>Gestão de vagas</h3>
+                        <p>Cadastre oportunidades, informe requisitos e destaque vagas que valorizam potencial.</p>
+                        <a href="publicar-vaga.html" class="btn btn-primary">Gerenciar vagas</a>
+                    </article>
+                    <article class="card">
+                        <h3>Banco de talentos</h3>
+                        <p>Consulte candidatos, habilidades, projetos e atividades práticas compartilhadas nas candidaturas.</p>
+                        <a href="empresa-perfil.html" class="btn btn-outline">Consultar candidatos</a>
+                    </article>
+                </div>
+
+                <!-- PESQUISAS E INDICADORES EXCLUSIVOS DA EMPRESA -->
+                <section class="company-research" aria-labelledby="research-title">
+                    <div class="research-heading">
+                        <div>
+                            <span class="research-eyebrow">INTELIGÊNCIA DE TALENTOS</span>
+                            <h2 id="research-title">Pesquisas e indicadores</h2>
+                            <p>Visualize os dados registrados na VagasTech para orientar suas contratações.</p>
+                        </div>
+                        <button type="button" class="btn btn-outline" id="refresh-company-research">Atualizar dados</button>
+                    </div>
+
+                    <div class="research-kpis">
+                        <article class="research-kpi">
+                            <span>Candidatos cadastrados</span>
+                            <strong id="research-candidates">0</strong>
+                            <small>Perfis disponíveis no banco</small>
+                        </article>
+                        <article class="research-kpi">
+                            <span>Vagas publicadas</span>
+                            <strong id="research-jobs">0</strong>
+                            <small>Oportunidades na plataforma</small>
+                        </article>
+                        <article class="research-kpi">
+                            <span>Candidaturas recebidas</span>
+                            <strong id="research-applications">0</strong>
+                            <small>Inscrições registradas</small>
+                        </article>
+                        <article class="research-kpi">
+                            <span>Projetos nos perfis</span>
+                            <strong id="research-projects">0</strong>
+                            <small>Portfólios informados</small>
+                        </article>
+                    </div>
+
+                    <div class="research-chart-grid">
+                        <article class="card research-chart-card">
+                            <div class="chart-title">
+                                <div><h3>Áreas de atuação</h3><p>Distribuição dos candidatos por área</p></div>
+                            </div>
+                            <canvas id="research-area-chart" role="img" aria-label="Gráfico de candidatos por área"></canvas>
+                            <div id="research-area-legend" class="chart-legend"></div>
+                        </article>
+                        <article class="card research-chart-card">
+                            <div class="chart-title">
+                                <div><h3>Nível de experiência</h3><p>Perfil profissional dos candidatos</p></div>
+                            </div>
+                            <canvas id="research-level-chart" role="img" aria-label="Gráfico de candidatos por nível"></canvas>
+                            <div id="research-level-legend" class="chart-legend"></div>
+                        </article>
+                        <article class="card research-chart-card research-wide">
+                            <div class="chart-title">
+                                <div><h3>Competências mais informadas</h3><p>Habilidades declaradas nos currículos cadastrados</p></div>
+                            </div>
+                            <canvas id="research-skills-chart" role="img" aria-label="Gráfico das competências mais informadas"></canvas>
+                        </article>
+                        <article class="card research-chart-card research-wide">
+                            <div class="chart-title">
+                                <div><h3>Resumo da atividade</h3><p>Comparativo entre oportunidades e candidaturas</p></div>
+                            </div>
+                            <div class="research-activity" id="research-activity"></div>
+                        </article>
+                    </div>
+                    <p class="research-disclaimer">Fonte: dados cadastrados na própria plataforma (contas demonstrativas, perfis, vagas e candidaturas). Os indicadores são atualizados localmente e não representam uma pesquisa externa ou estatística oficial do mercado.</p>
+                </section>
+            </section>
+        </div>
+    </section>
+</main>
+
+<script src="js/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const user = JSON.parse(localStorage.getItem("vt_user") || "null");
+    if (!user) {
+        window.location.replace("login.html");
+        return;
+    }
+
+    const title = document.querySelector("#dashboard-title");
+    const description = document.querySelector("#dashboard-description");
+
+    if (user.type === "company") {
+        title.textContent = `Bem-vinda à VagasTech, ${user.name}`;
+        description.textContent = "Gerencie suas oportunidades e encontre novos talentos.";
+    } else {
+        title.textContent = `Olá, ${user.name}!`;
+        description.textContent = "Acompanhe seu desenvolvimento e encontre sua próxima oportunidade.";
+
+        document.querySelector("#dashboard-applications").textContent =
+            (user.applications || []).length;
+
+        document.querySelector("#dashboard-projects").textContent =
+            (user.projects || []).length;
+
+        document.querySelector("#dashboard-activities").textContent =
+            (user.completedActivities || []).length;
+    }
+});
+</script>
+<script>
+
+    // Indicadores da empresa: gráficos desenhados em Canvas, sem bibliotecas externas.
+    function initCompanyResearch() {
+        const companyArea = document.querySelector('[data-role="company"]');
+        if (!companyArea || companyArea.hidden) return;
+
+        const demo = {
+            id: 1000, type: "candidate", name: "Candidato demonstrativo",
+            area: "Desenvolvimento", level: "Iniciante",
+            skills: ["HTML", "CSS", "JavaScript", "Lógica de Programação"],
+            projects: []
+        };
+        const registered = JSON.parse(localStorage.getItem("vt_users") || "[]");
+        const candidatesMap = new Map();
+        [demo, ...registered].forEach(person => {
+            if (person && person.type === "candidate") {
+                candidatesMap.set(person.email || `candidate-${person.id}`, person);
+            }
+        });
+        const candidates = [...candidatesMap.values()];
+        const jobs = JSON.parse(localStorage.getItem("vt_jobs") || "null") || [
+            {id:1, title:"Estágio em Desenvolvimento Front-end"},
+            {id:2, title:"Júnior em Suporte de TI"},
+            {id:3, title:"Trainee em Banco de Dados"}
+        ];
+        const applications = JSON.parse(localStorage.getItem("vt_applications") || "[]");
+        const totalProjects = candidates.reduce((sum, person) =>
+            sum + (Array.isArray(person.projects) ? person.projects.length : 0), 0);
+
+        document.getElementById("research-candidates").textContent = candidates.length;
+        document.getElementById("research-jobs").textContent = jobs.length;
+        document.getElementById("research-applications").textContent = applications.length;
+        document.getElementById("research-projects").textContent = totalProjects;
+
+        const colors = ["#20b486", "#2869a6", "#e6a23c", "#7b61a8", "#e07878", "#58a6a6"];
+        const countBy = (items, getter, fallback) => {
+            const counts = {};
+            items.forEach(item => {
+                const key = (getter(item) || "").toString().trim() || fallback;
+                counts[key] = (counts[key] || 0) + 1;
+            });
+            return Object.entries(counts).sort((a,b) => b[1]-a[1]);
+        };
+        const areas = countBy(candidates, p => p.area, "Não informado");
+        const levels = countBy(candidates, p => p.level, "Não informado");
+        const skillCounts = {};
+        candidates.forEach(person => (person.skills || []).forEach(skill => {
+            const key = String(skill).trim();
+            if (key) skillCounts[key] = (skillCounts[key] || 0) + 1;
+        }));
+        const skills = Object.entries(skillCounts).sort((a,b) => b[1]-a[1]).slice(0,6);
+
+        function fitCanvas(canvas, height) {
+            const ratio = window.devicePixelRatio || 1;
+            const width = Math.max(260, canvas.clientWidth || 300);
+            canvas.width = width * ratio;
+            canvas.height = height * ratio;
+            const ctx = canvas.getContext("2d");
+            ctx.scale(ratio, ratio);
+            return {ctx, width, height};
+        }
+        function drawDonut(id, entries, legendId) {
+            const canvas = document.getElementById(id);
+            const {ctx, width, height} = fitCanvas(canvas, 210);
+            const total = entries.reduce((sum, item) => sum + item[1], 0);
+            const cx = width/2, cy = 102, radius = 72, inner = 43;
+            if (!total) {
+                ctx.fillStyle = "#718096"; ctx.font = "14px Inter, sans-serif";
+                ctx.textAlign = "center"; ctx.fillText("Sem dados disponíveis", cx, cy);
+            } else {
+                let start = -Math.PI/2;
+                entries.forEach(([label, value], index) => {
+                    const end = start + value/total * Math.PI*2;
+                    ctx.beginPath(); ctx.arc(cx,cy,radius,start,end);
+                    ctx.arc(cx,cy,inner,end,start,true); ctx.closePath();
+                    ctx.fillStyle = colors[index % colors.length]; ctx.fill();
+                    start = end;
+                });
+                ctx.fillStyle = "#173b67"; ctx.font = "700 25px Inter, sans-serif";
+                ctx.textAlign = "center"; ctx.fillText(total, cx, cy+5);
+                ctx.fillStyle = "#718096"; ctx.font = "11px Inter, sans-serif";
+                ctx.fillText("candidatos", cx, cy+23);
+            }
+            document.getElementById(legendId).innerHTML = entries.length
+                ? entries.map(([label,value],i) => `<span><i style="background:${colors[i%colors.length]}"></i>${escapeResearch(label)} <b>${value}</b></span>`).join("")
+                : "<span>Sem dados para exibir</span>";
+        }
+        function drawBars(id, entries) {
+            const canvas = document.getElementById(id);
+            const {ctx,width,height} = fitCanvas(canvas, 230);
+            const left = 112, right = 28, top = 12, row = 34;
+            const max = Math.max(1, ...entries.map(item => item[1]));
+            if (!entries.length) {
+                ctx.fillStyle="#718096"; ctx.font="14px Inter, sans-serif";
+                ctx.fillText("Ainda não há competências cadastradas.", 12, 35); return;
+            }
+            entries.forEach(([label,value],i) => {
+                const y = top + i*row;
+                ctx.fillStyle="#526174"; ctx.font="12px Inter, sans-serif";
+                ctx.textAlign="right"; ctx.fillText(label.length>16 ? label.slice(0,15)+"…" : label, left-10, y+15);
+                ctx.fillStyle="#edf2f7"; ctx.fillRect(left,y,width-left-right,13);
+                ctx.fillStyle=colors[i%colors.length];
+                ctx.fillRect(left,y,(width-left-right)*value/max,13);
+                ctx.fillStyle="#253449"; ctx.textAlign="left";
+                ctx.fillText(value, Math.min(width-22,left+(width-left-right)*value/max+7), y+12);
+            });
+        }
+        function escapeResearch(value) {
+            return String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+        }
+
+        drawDonut("research-area-chart", areas, "research-area-legend");
+        drawDonut("research-level-chart", levels, "research-level-legend");
+        drawBars("research-skills-chart", skills);
+        const maxActivity = Math.max(1, jobs.length, applications.length);
+        document.getElementById("research-activity").innerHTML = [
+            ["Vagas publicadas", jobs.length, "#2869a6"],
+            ["Candidaturas recebidas", applications.length, "#20b486"]
+        ].map(([label,value,color]) => `
+            <div class="activity-row">
+                <div class="activity-label"><span>${label}</span><strong>${value}</strong></div>
+                <div class="activity-track"><span style="width:${(value/maxActivity)*100}%;background:${color}"></span></div>
+            </div>`).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const refresh = document.getElementById("refresh-company-research");
+        if (refresh) refresh.addEventListener("click", initCompanyResearch);
+        // O script principal aplica a permissão de perfil antes de inicializar os indicadores.
+        setTimeout(initCompanyResearch, 0);
+        window.addEventListener("resize", () => {
+            clearTimeout(window.__researchResize);
+            window.__researchResize = setTimeout(initCompanyResearch, 150);
+        });
+    });
+</script>
+<script src="js/api.js"></script>
+</body>
+</html>

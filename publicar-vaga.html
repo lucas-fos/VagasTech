@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar vaga | VagasTech</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-content">
+        <a href="index.html" class="logo">Vagas<span>Tech</span></a>
+        <nav class="nav-links">
+            <a href="dashboard.html">Painel</a>
+            <a href="empresa-perfil.html">Banco de talentos</a>
+            <a href="publicar-vaga.html">Publicar vaga</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="page-header">
+        <h1>Gestão de vagas</h1>
+        <p>Cadastre oportunidades e defina critérios claros para candidatos.</p>
+    </div>
+
+    <form id="publish-job-form" class="form-card">
+        <h2>Dados da oportunidade</h2>
+
+        <div class="form-group">
+            <label>Título da vaga</label>
+            <input name="title" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Área</label>
+                <select name="area">
+                    <option>Desenvolvimento</option>
+                    <option>Frontend</option>
+                    <option>Backend</option>
+                    <option>Banco de Dados</option>
+                    <option>Suporte</option>
+                    <option>Dados</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Nível</label>
+                <select name="level">
+                    <option>Estágio</option>
+                    <option>Trainee</option>
+                    <option>Júnior</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Modelo de trabalho</label>
+                <select name="model">
+                    <option>Remoto</option>
+                    <option>Híbrido</option>
+                    <option>Presencial</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Localização</label>
+                <input name="location" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Tecnologias</label>
+            <input name="technologies"
+                placeholder="Ex.: JavaScript, HTML, CSS" required>
+        </div>
+
+        <div class="form-group">
+            <label>Experiência exigida</label>
+            <select name="experience">
+                <option>Não exige experiência formal</option>
+                <option>Projetos acadêmicos ou pessoais aceitos</option>
+                <option>Experiência anterior obrigatória</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Descrição da vaga</label>
+            <textarea name="description" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Requisitos</label>
+            <textarea name="requirements" required></textarea>
+        </div>
+
+        <button class="btn btn-primary">Publicar oportunidade</button>
+    </form>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/api.js"></script>
+</body>
+</html>

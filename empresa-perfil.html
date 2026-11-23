@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área da empresa | VagasTech</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-content">
+        <a href="index.html" class="logo">Vagas<span>Tech</span></a>
+        <nav class="nav-links">
+            <a href="dashboard.html">Painel</a>
+            <a href="publicar-vaga.html">Publicar vaga</a>
+            <a href="empresa-perfil.html">Banco de talentos</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="page-header">
+        <h1>Banco de talentos</h1>
+        <p>
+            Conheça candidatos a partir de suas habilidades,
+            projetos e atividades práticas.
+        </p>
+    </div>
+
+    <section class="card" style="margin-bottom:25px">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Pesquisar candidato</label>
+                <input id="talent-search" placeholder="Nome, habilidade ou projeto">
+            </div>
+
+            <div class="form-group">
+                <label>Filtrar por vaga</label>
+                <select id="talent-job-filter">
+                    <option value="">Todas as vagas</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section id="talent-list" class="grid"></section>
+</main>
+
+<script src="js/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const select = document.querySelector("#talent-job-filter");
+    const jobs = JSON.parse(localStorage.getItem("vt_jobs") || "null") || [
+        {
+            id: 1,
+            title: "Estágio em Desenvolvimento Frontend",
+            company: "Tech Solutions"
+        },
+        {
+            id: 2,
+            title: "Desenvolvedor Backend Júnior",
+            company: "CodeLab"
+        },
+        {
+            id: 3,
+            title: "Trainee em Banco de Dados",
+            company: "DataTech"
+        }
+    ];
+
+    jobs.forEach(job => {
+        const option = document.createElement("option");
+        option.value = job.id;
+        option.textContent = job.title;
+        select.appendChild(option);
+    });
+});
+</script>
+<script src="js/api.js"></script>
+</body>
+</html>

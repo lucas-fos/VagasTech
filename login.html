@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | VagasTech</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-content">
+        <a href="index.html" class="logo">Vagas<span>Tech</span></a>
+        <a href="cadastro.html">Criar conta</a>
+    </div>
+</header>
+
+<main class="auth-wrapper">
+    <form class="auth-card" id="login-form">
+        <h1>Bem-vindo de volta!</h1>
+        <p>Entre para continuar sua jornada profissional.</p>
+
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Senha</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <label>Tipo de acesso</label>
+            <select name="type" required>
+                <option value="candidate">Candidato</option>
+                <option value="company">Empresa</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary" style="width:100%">Entrar</button>
+
+        <p style="margin-top:20px">
+            Ainda não possui conta?
+            <a href="cadastro.html">Cadastre-se</a>
+        </p>
+    </form>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/api.js"></script>
+</body>
+</html>
